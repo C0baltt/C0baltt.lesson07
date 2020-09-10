@@ -10,13 +10,13 @@ namespace C0baltt.lesson07
     {
         static void Main(string[] args)
         {
-            int[,] i = new int[10, 10];
-            var rnd = new Random();
+            int[,] array = new int[10, 10];
             for (var i = 0; i < 10; i++)
             {
-                list.Add(rnd.Next(0, 100).ToString());
-                break;
-                continue;
+                for (var j = 0; j< 10; j++)
+                {
+                    array[i, j] = 8;
+                }
             }
             foreach(var item in list)//(элемент in коллекция)
             {
