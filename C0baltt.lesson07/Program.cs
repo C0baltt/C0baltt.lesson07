@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,17 +16,60 @@ namespace C0baltt.lesson07
     {
         static void Main(string[] args)
         {
-            var list = new List<string>();//инициализируем коллекцию list
-            for (var i = 0; i < 15; i++)//добавляем 15 элементов в коллекцию
+            var list = new List<int>();//инициализируем коллекцию list с форматом данных int
+            while (list.Count < 15)//
+                //list.Count подсчитывает количество элементов в списке,=>
+                //=>соответственно цикл будет выполнятся, пока количество элементов меньше 15
             {
-                list.Add(i);//добавляем элементы в коллекцию
+                int i = Convert.ToInt32(Console.ReadLine());//int i -- создаем переменную i с типом int,=>
+                //=>Convert.ToInt32(Console.ReadLine())конвертируем строку string, что пользователь ввел в консоль,=>
+                //=> в тип Int и присваиваем это значение переменной i
+                list.Add(i);//добавляем в список новый элемент, записывая значение из переменной i
             }
 
-            for (var i = 0; i < list.Count; i++)//вводим значения для 15-ти элементов коллекции list 
+           /* for (var i = 0; i < list.Count; i++)//вводим значения для 15-ти элементов коллекции list 
             {
                 Console.WriteLine(list[i]);//считываем с консоли значение i-того элемента
             }    
-                Console.ReadLine();
+                Console.ReadLine();*/
+
+            var sum = 0;
+            for (var i = 0; i < 15; i++)
+            {
+                sum = list[i] + sum;
+            }
+            Console.Write("Сумма всех элементов = "); 
+            Console.WriteLine(sum);
+            Console.ReadLine();
+
+            var diff = 0;
+            var j = 0;
+            while (list.Count > 15)
+            {
+                diff -= list[j];
+                j++;
+            }
+            Console.Write("Разность всех элементов = ");
+            Console.WriteLine(diff);
+            Console.ReadLine();
+
+            double multiplication = 1;
+            j = 0;
+            do
+            {
+                multiplication *= list[j];
+                j++;
+            }
+            while (j < list.Count);
+            Console.Write("Произведение всех элементов = ");
+            Console.WriteLine(multiplication);
+            Console.ReadLine();
+
+            foreach (var item in list)
+            {
+                Console.WriteLine(item);
+            }
+            Console.ReadLine();
         }
     }
 }
