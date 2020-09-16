@@ -18,23 +18,26 @@ namespace C0baltt.lesson07
         {
             var list = new List<int>();//инициализируем коллекцию list с форматом данных int
             while (list.Count < 15)//
-                //list.Count подсчитывает количество элементов в списке,=>
-                //=>соответственно цикл будет выполнятся, пока количество элементов меньше 15
+                                   //list.Count подсчитывает количество элементов в списке,=>
+                                   //=>соответственно цикл будет выполнятся, пока количество элементов меньше 15
             {
+                //try 
+                //{ 
+
                 int i = Convert.ToInt32(Console.ReadLine());//int i -- создаем переменную i с типом int,=>
                 //=>Convert.ToInt32(Console.ReadLine())конвертируем строку string, что пользователь ввел в консоль,=>
                 //=> в тип Int и присваиваем это значение переменной i
-                list.Add(i);//добавляем в список новый элемент, записывая значение из переменной i
+                list.Add(i);//добавляем в список новый элемент, записывая значение из переменной i         
+                
+                /*}
+                catch (OverflowException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }*/
             }
 
-           /* for (var i = 0; i < list.Count; i++)//вводим значения для 15-ти элементов коллекции list 
-            {
-                Console.WriteLine(list[i]);//считываем с консоли значение i-того элемента
-            }    
-                Console.ReadLine();*/
-
             var sum = 0;
-            for (var i = 0; i < 15; i++)
+            for (var i = 0; i < list.Count; i++)
             {
                 sum = list[i] + sum;
             }
